@@ -11,7 +11,6 @@ import threading
 # Create the main window
 frame = tk.Tk()
 frame.title("Logic Analyzer")
-# frame.geometry("800x1000")
 frame.configure(background="white")
 
 runningflag = True
@@ -27,9 +26,7 @@ def button_callback():
             new_samples = 250
         elif samples < 25:
             new_samples = 25
-        samples_entry.delete(0, tk.END)
-        print(chr(new_samples))
-    
+        samples_entry.delete(0, tk.END)    
 
 
 # Create a Frame to contain the Entry and Button widgets
@@ -134,8 +131,6 @@ def read_samples():
                 else:
                     print("Invalid sample received.")
                 
-        print("done")
-
         update_plots()
 
 
@@ -150,8 +145,7 @@ def update_plots():
     for i in range(8):
         lines[i].set_ydata(data[i])
         lines[i].set_xdata(time_stamp)
-        fig[i].axes[0].set_xlim(0, time_stamp[-1])
-        
+        fig[i].axes[0].set_xlim(0, time_stamp[-1])      
         canvas[i].draw()
         frame.update_idletasks()
         
@@ -187,16 +181,10 @@ def update_plots():
     for i in range(8):
         freq_labels[i].configure(text= "Avg Freq. = {:06} Hz".format((int)(frequency[i])))
         pw_labels[i].configure(text= "Pulse Width = {:06} us".format((int)(pulse_width[i])))
-
     
-    ser.write(new_samples.to_bytes(1, byteorder='big', signed=False))
-
-   # ser.write(bytes(chr(new_samples), 'utf-8'))
-    
+    ser.write(new_samples.to_bytes(1, byteorder='big', signed=False))    
     samples = new_samples
-    print(new_samples.to_bytes(1, byteorder='big', signed=False))
     time_stamp = [0]*samples
-
     data = [[] for _ in range(8)]
     
 # create thread to read data from the logic analyzer

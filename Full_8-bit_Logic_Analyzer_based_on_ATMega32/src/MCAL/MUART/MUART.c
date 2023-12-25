@@ -1,7 +1,10 @@
+#define F_CPU 8000000UL
 #include <avr/io.h>
+#include <stdlib.h>
+#include <util/delay.h>
 #include <avr/interrupt.h>
 
-#include "UART.h"
+#include "MUART.h"
 
 static volatile uint8_t  *tx_buffer;
 static volatile uint16_t tx_len;
@@ -51,16 +54,16 @@ ISR(USART_TXC_vect)
 }
 
 
-void UART_Init(UART_cfg *my_cfg)
+void UART_Init()
 {
     /* Set baud rate */
-    UBRRH = my_cfg->UBRRH_cfg;
-    UBRRL = my_cfg->UBRRL_cfg;
+    UBRRL =(UBRR_VALUE)&0x00FF;
+    UBRRH = (((UBRR_VALUE)&0xFF00)>>8);
     
-    UCSRA = my_cfg->UCSRA_cfg;
-    UCSRB = my_cfg->UCSRB_cfg;
-    UCSRC = my_cfg->UCSRC_cfg;
-    
+    /* Set USART mode */
+    UCSRA = 0;
+    UCSRB = (1<<RXEN)  | (1<<TXEN) | (1<<TXCIE) | (1<<RXCIE);
+    UCSRC = (1<<URSEL) | (3<<UCSZ0);
 }
 
 void UART_SendPayload(uint8_t *tx_data, uint16_t len)
