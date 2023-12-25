@@ -20,13 +20,11 @@ void TIMER_Init()
 	SET_BIT(TCCR1B,CS11); //CS11
 	CLR_BIT(TCCR1B,CS12); //CS12
 	
-
 	// Setting Timer1 to Normal Mode
 	CLR_BIT(TCCR1A,WGM10); //WGM10
 	CLR_BIT(TCCR1A,WGM11); //WGM11
 	CLR_BIT(TCCR1B,WGM12); //WGM12
 	CLR_BIT(TCCR1B,WGM13); //WGM13
-	
 	
 	// Setting Timer ov interrupt on
 	SET_BIT(TIMSK,TOIE1);

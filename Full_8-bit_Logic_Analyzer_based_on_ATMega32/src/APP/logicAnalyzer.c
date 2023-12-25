@@ -42,7 +42,7 @@ static states_t currentState = SAMPLING;
 static uint8_t  pin_states[_SAMPLES_NUM];
 static uint32_t time_snap[_SAMPLES_NUM];
 static uint8_t samples_num = _SAMPLES_NUM;
-static uint8_t _go_signal_buf = 100;
+static uint8_t _go_signal_buf = _SAMPLES_NUM;
 extern uint32_t timerOVFs;
 
 
@@ -120,11 +120,7 @@ void LOGIC_MainFunction(void)
             // Trigger receiving for go signal.
             UART_ReceivePayload(&_go_signal_buf, 1);
 			while(0 == UART_IsRxComplete());
-			TCNT1L = 0;
-			TCNT1H = 0;
-			timerOVFs = 0;
 			samples_num = _go_signal_buf;
-
         }
         case IDLE:
         {
@@ -136,7 +132,6 @@ void LOGIC_MainFunction(void)
 				TCNT1L = 0;
 				TCNT1H = 0;
 				timerOVFs = 0;
-				//samples_num = ((volatile uint8_t)atoi(_go_signal_buf));
             }
             break;
         }
