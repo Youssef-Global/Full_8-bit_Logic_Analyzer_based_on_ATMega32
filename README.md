@@ -18,6 +18,6 @@ This project presents a Full 8-bit Logic Analyzer with USB interfacing, utilizin
 5. The USB to TTL converter adjusts logic levels for USB compatibility.
 6. The PC application plots the signals and calculates relevant metrics.
 
-<img src="[url](https://github.com/Youssef-Global/Full_8-bit_Logic_Analyzer_based_on_ATMega32/assets/105471669/5bb8c128-0294-4782-b440-53bd01b6d0f5)" alt="USB to TTL Volatage Levels" width="250" height="100">
+<img src="https://github.com/Youssef-Global/Full_8-bit_Logic_Analyzer_based_on_ATMega32/assets/105471669/5bb8c128-0294-4782-b440-53bd01b6d0f5" alt="USB to TTL Volatage Levels" width="250" height="100">
 ---
 
