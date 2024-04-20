@@ -19,5 +19,5 @@ This project presents a Full 8-bit Logic Analyzer with USB interfacing, utilizin
 6. The PC application plots the signals and calculates relevant metrics.
 
 <p align="center">
-  <img width="600" height="300" src="https://picsum.photos/460/300](https://github.com/Youssef-Global/Full_8-bit_Logic_Analyzer_based_on_ATMega32/assets/105471669/5bb8c128-0294-4782-b440-53bd01b6d0f5">
+  <img width="600" height="300" src="https://github.com/Youssef-Global/Full_8-bit_Logic_Analyzer_based_on_ATMega32/assets/105471669/5bb8c128-0294-4782-b440-53bd01b6d0f5">
 </p>
