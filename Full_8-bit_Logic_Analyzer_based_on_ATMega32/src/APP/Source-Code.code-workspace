@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "../../../Source-Code"
+		},
+		{
+			"name": "Full_8-bit_Logic_Analyzer_based_on_ATMega32",
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"muart.h": "c",
+			"interrupt.h": "c",
+			"logicanalyzer.h": "c",
+			"mtimer.h": "c",
+			"std_macros.h": "c",
+			"delay.h": "c"
+		}
+	}
+}
